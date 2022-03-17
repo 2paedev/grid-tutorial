@@ -1,0 +1,23 @@
+:root {
+  /** COLORS **/
+  --color-100: #F7DFD4;
+  --filter-color-100: invert(86%) sepia(37%) saturate(259%) hue-rotate(315deg) brightness(104%) contrast(94%);
+
+  --color-200: #EABCAC;
+  --filter-color-200: invert(90%) sepia(5%) saturate(3478%) hue-rotate(309deg) brightness(101%) contrast(84%);
+
+  --color-300: #E2B091;
+  --filter-color-300: invert(91%) sepia(72%) saturate(5607%) hue-rotate(294deg) brightness(93%) contrast(91%);
+
+  --color-400: #874E4C;
+  --filter-color-400: invert(32%) sepia(20%) saturate(1060%) hue-rotate(314deg) brightness(98%) contrast(86%);
+
+  --color-500: #32485C;
+  --filter-color-500: invert(25%) sepia(13%) saturate(1445%) hue-rotate(167deg) brightness(92%) contrast(88%);
+
+  --color-green: #76ddaf;
+  --filter-color-green: invert(78%) sepia(77%) saturate(243%) hue-rotate(91deg) brightness(92%) contrast(87%);
+
+  --color-red: #db6666;
+  --filter-color-red: invert(64%) sepia(14%) saturate(5077%) hue-rotate(314deg) brightness(86%) contrast(102%); 
+}

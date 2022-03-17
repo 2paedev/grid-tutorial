@@ -1,0 +1,35 @@
+.figure-1a {
+  display: grid;
+}
+
+.figure-1b {
+  display: inline-grid;
+}
+
+.figure-1a .item:hover,
+.figure-1b .item:hover {
+  animation: .5s shake infinite alternate;
+}
+
+.figure-1a,
+.figure-1b {
+  grid-template-columns: repeat(3, 2rem);
+  grid-template-rows: repeat(2, 2rem);
+  color: var(--color-green);
+  margin: 0.5rem;
+}
+
+.figure-1a .item,
+.figure-1b .item {
+  border: 1px solid var(--color-green);  
+}
+
+/** Animations **/
+@keyframes shake {
+  0% { transform: skewX(-15deg); }
+  5% { transform: skewX(15deg); }
+  10% { transform: skewX(-15deg); }
+  15% { transform: skewX(15deg); }
+  20% { transform: skewX(0deg); }
+  100% { transform: skewX(0deg); }  
+}

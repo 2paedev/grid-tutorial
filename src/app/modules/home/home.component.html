@@ -1,0 +1,60 @@
+<section class="home">
+  <app-remark>{{ REMARKS_TEXT.ABOUT_PROJECT }}</app-remark>
+
+  <h1 class="title">Grid Layout</h1>
+
+  <app-box title="Introduction">
+    <p>Grid layout is a <em>generalized</em> layout system with emphasis on rows and columns. There are powerfully flexible methods for defining repeating patterns of grid lines, 
+      attaching elements to those grid lines, and more.</p>
+  </app-box>
+
+  <app-box title="Creating a Grid Container">
+    <p>The first step to creating a grid is defining a <em>grid container</em>. The child elements of a grid container become grid <em>items</em>. The children of those child elements
+      do not become grid elemenets. It's possible to nest grids inside grids.</p>
+    
+    <p>There are two kinds of grids: <em>regular</em> and <em>inline</em> grids. These are created with special values for the <strong>display</strong> property: <strong>grid</strong>
+      and <strong>inline-grid</strong>. The first generates a block-level box, and the second an inline-level box.</p>
+
+    <app-figure title="Figure 1">
+      <pre><code>
+        display: grid;
+      </code></pre>
+      <div>This grid box is placed in the middle <div class="figure-1a"><span class="item" *ngFor="let item of numSequence(6)"></span></div> of a sentence.</div>
+      <hr>
+      <pre><code>
+        display: inline-grid;
+      </code></pre>
+      <div>This grid box is also placed in the middle <div class="figure-1b"><span class="item" *ngFor="let item of numSequence(6)"></span></div> of a sentence.</div>
+    </app-figure>
+  </app-box>
+
+  <app-box title="Basic Grid Terminology">
+    <app-figure title="Figure 2">
+      <div>
+        <div class="figure-2">
+          <span class="item" [ngClass]="{'track': isGridTrack}"></span>
+          <span class="item"></span>
+          <span class="item"></span>
+
+          <span class="item" [ngClass]="{'track': isGridTrack}"></span>
+          <span class="item" [ngClass]="{'cell': isGridCell, 'area': isGridArea, 'line': isGridLine}"></span>
+          <span class="item" [ngClass]="{'area': isGridArea}"></span>
+
+          <span class="item" [ngClass]="{'track': isGridTrack}"></span>
+          <span class="item" [ngClass]="{'area': isGridArea}"></span>
+          <span class="item" [ngClass]="{'area': isGridArea}"></span>
+        </div>
+        
+        <div><p>"{{ basicTerminology }}"</p></div>
+      </div>
+      <div>
+        <span>Select one:</span>
+        <button (click)="setGridTrack()">Grid Track</button>
+        <button (click)="setGridLine()">Grid Line</button>
+        <button (click)="setGridArea()">Grid Area</button>
+        <button (click)="setGridCell()">Grid Cell</button>
+      </div>
+    </app-figure>
+  </app-box>
+</section>
+

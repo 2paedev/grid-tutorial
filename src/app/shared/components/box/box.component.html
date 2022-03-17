@@ -1,0 +1,10 @@
+<div class="box">
+  <div class="header">
+    <h1 class="title" >{{ title }}</h1>
+    <i [ngClass]="isCollapsed ? 'expand-more-icon' : 'expand-less-icon'" (click)="isCollapsed = !isCollapsed"></i>
+  </div>
+
+  <ng-container *ngIf="!isCollapsed">
+    <ng-content ></ng-content>  
+  </ng-container>
+</div>

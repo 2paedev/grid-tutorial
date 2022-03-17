@@ -1,0 +1,23 @@
+.box {
+  min-width: 250px;
+  padding: 1rem;
+
+  background-color: var(--color-300);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.box .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box .header i {
+  margin-bottom: 1rem;
+}
+
+.box .title {
+  width: 100%;
+  font-size: 2rem;
+  margin-top: 1rem;
+}

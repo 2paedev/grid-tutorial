@@ -1,0 +1,38 @@
+.figure-2 {
+  display: grid;
+  grid-template-columns: repeat(3, 5rem);
+  grid-template-rows: repeat(3, 5rem);
+}
+
+.figure-2 .item {
+  border: 1px solid var(--color-green);
+}
+
+.figure-2 .item.cell,
+.figure-2 .item.area {
+  background-color: var(--color-green);
+  transition: all .5s ease-in-out;
+}
+
+.figure-2 .item.cell:hover,
+.figure-2 .item.area:hover {
+  transform: scale(1.2);
+}
+
+.figure-2 .item.line:hover {
+  border-top: 14px solid var(--color-green); 
+}
+
+.figure-2 .item.track:hover {
+  border-left: 14px solid var(--color-green);
+}
+
+.figure-2 .item.track {
+  border-left: 10px solid var(--color-green);
+  transition: all .2s ease-in-out;
+}
+
+.figure-2 .item.line {
+  border-top: 10px solid var(--color-green);  
+  transition: all .2s ease-in-out;
+}
