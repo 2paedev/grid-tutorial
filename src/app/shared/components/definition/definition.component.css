@@ -1,0 +1,37 @@
+.definition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  width: 90%;
+  padding: 2rem;
+  margin: 1rem 0 2rem;
+
+  background-color: var(--color-100);
+  border: 3px solid var(--color-400);
+  border-radius: 1rem;
+}
+
+.definition .title-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.definition .title-wrapper h2 {
+  margin-left: 1rem;
+}
+
+.definition .content {
+  margin-top: 1rem;
+}
+
+.definition .property {
+  display: grid;
+  grid-template-columns: 10rem minmax(3rem, 100%);
+  align-items: center;
+}
+
+.definition .property span {
+  font-weight: bold;
+}

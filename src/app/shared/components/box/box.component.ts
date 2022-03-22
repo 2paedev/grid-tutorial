@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BoxComponent implements OnInit {
   @Input() title = '';
-  public isCollapsed = false;
+  public isCollapsed = true;
 
   constructor() {}
 

@@ -3,58 +3,157 @@
 
   <h1 class="title">Grid Layout</h1>
 
-  <app-box title="Introduction">
-    <p>Grid layout is a <em>generalized</em> layout system with emphasis on rows and columns. There are powerfully flexible methods for defining repeating patterns of grid lines, 
-      attaching elements to those grid lines, and more.</p>
-  </app-box>
+  <div class="table-of-contents">
+    <h2>Table of contents</h2>
+    <ol>
+      <li (click)="scrollTo(introduction)">Introduction</li>
+      <li (click)="scrollTo(creatingGridContainer)">Creating a Grid Container</li>
+      <li (click)="scrollTo(basicGridTerm)">Basic Grid Terminology</li>
+      <li (click)="scrollTo(placingGridLines)">
+        Placing Grid Lines
+        <ul>
+          <li (click)="scrollTo(fixedWidthGridTracks)">Fixed-Width Grid Tracks</li>
+          <li (click)="scrollTo(flexibleGridTracks)">Flexible Grid Tracks</li>
+          <li (click)="scrollTo(fittingTrackContents)">Fitting Track Contents</li>
+          <li (click)="scrollTo(repeatingGridLines)">Repeating Grid Lines</li>
+          <li (click)="scrollTo(gridAreas)">Grid Areas</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
 
-  <app-box title="Creating a Grid Container">
-    <p>The first step to creating a grid is defining a <em>grid container</em>. The child elements of a grid container become grid <em>items</em>. The children of those child elements
-      do not become grid elemenets. It's possible to nest grids inside grids.</p>
-    
-    <p>There are two kinds of grids: <em>regular</em> and <em>inline</em> grids. These are created with special values for the <strong>display</strong> property: <strong>grid</strong>
-      and <strong>inline-grid</strong>. The first generates a block-level box, and the second an inline-level box.</p>
+  <div class="box-wrapper" #introduction>
+    <app-box title="1. Introduction">
+      <p>Grid layout is a <em>generalized</em> layout system with emphasis on rows and columns. There are powerfully flexible methods for defining repeating patterns of grid lines, 
+        attaching elements to those grid lines, and more.</p>
+    </app-box>
+  </div>
 
-    <app-figure title="Figure 1">
-      <pre><code>
-        display: grid;
-      </code></pre>
-      <div>This grid box is placed in the middle <div class="figure-1a"><span class="item" *ngFor="let item of numSequence(6)"></span></div> of a sentence.</div>
-      <hr>
-      <pre><code>
-        display: inline-grid;
-      </code></pre>
-      <div>This grid box is also placed in the middle <div class="figure-1b"><span class="item" *ngFor="let item of numSequence(6)"></span></div> of a sentence.</div>
-    </app-figure>
-  </app-box>
+  <div class="box-wrapper" #creatingGridContainer>
+    <app-box title="2. Creating a Grid Container">
+      <p>The first step to creating a grid is defining a <em>grid container</em>. The child elements of a grid container become grid <em>items</em>. The children of those child elements
+        do not become grid elemenets. It's possible to nest grids inside grids.</p>
+      
+      <p>There are two kinds of grids: <em>regular</em> and <em>inline</em> grids. These are created with special values for the <strong>display</strong> property: <strong>grid</strong>
+        and <strong>inline-grid</strong>. The first generates a block-level box, and the second an inline-level box.</p>
 
-  <app-box title="Basic Grid Terminology">
-    <app-figure title="Figure 2">
-      <div>
+      <app-figure title="Figure 1">
+        <pre><code>
+          display: grid;
+        </code></pre>
+        <div>This grid box is placed in the middle <div class="figure-1a"><span class="item" *ngFor="let item of numSequence(6)"></span></div> of a sentence.</div>
+        <hr>
+        <pre><code>
+          display: inline-grid;
+        </code></pre>
+        <div>This grid box is also placed in the middle <div class="figure-1b"><span class="item" *ngFor="let item of numSequence(6)"></span></div> of a sentence.</div>
+      </app-figure>
+    </app-box>
+  </div>
+
+  <div class="box-wrapper" #basicGridTerm>
+    <app-box title="3. Basic Grid Terminology">
+      <app-figure title="Figure 2">
         <div class="figure-2">
-          <span class="item" [ngClass]="{'track': isGridTrack}"></span>
-          <span class="item"></span>
-          <span class="item"></span>
+          <div class="block">
+            <div class="grid">
+              <span class="item" [ngClass]="{'track': gridComponentType === 'track'}"></span>
+              <span class="item"></span>
+              <span class="item"></span>
 
-          <span class="item" [ngClass]="{'track': isGridTrack}"></span>
-          <span class="item" [ngClass]="{'cell': isGridCell, 'area': isGridArea, 'line': isGridLine}"></span>
-          <span class="item" [ngClass]="{'area': isGridArea}"></span>
+              <span class="item" [ngClass]="{'track': gridComponentType === 'track'}"></span>
+              <span class="item" [ngClass]="{'cell': gridComponentType === 'cell', 'area': gridComponentType === 'area', 'line': gridComponentType === 'line'}"></span>
+              <span class="item" [ngClass]="{'area': gridComponentType === 'area'}"></span>
 
-          <span class="item" [ngClass]="{'track': isGridTrack}"></span>
-          <span class="item" [ngClass]="{'area': isGridArea}"></span>
-          <span class="item" [ngClass]="{'area': isGridArea}"></span>
-        </div>
+              <span class="item" [ngClass]="{'track': gridComponentType === 'track'}"></span>
+              <span class="item" [ngClass]="{'area': gridComponentType === 'area'}"></span>
+              <span class="item" [ngClass]="{'area': gridComponentType === 'area'}"></span>
+            </div>
+            
+            <p class="text" *ngIf="gridComponentType === 'line'">"The most fundamental unit is the <em>grid line</em>. By defining the placement of one or more grid lines, you implicity create the rest of 
+              the grid's components."</p>
+            
+            <p class="text" *ngIf="gridComponentType === 'track'">"A <em>grid track</em> is a continuous run between two adjacent grid lines. In other words, a grid <em>column</em> or a grid <em>row</em>."</p>
+
+            <p class="text" *ngIf="gridComponentType == 'cell'">"A <em>grid cell</em> is any space bounded by four grid lines. This is the smallest unit of area in grid layout. Grid cells cannot be 
+              directly addressed with CSS grid properties."</p>
+
+            <p class="text" *ngIf="gridComponentType === 'area'">"A <em>grid area</em> is any rectangular area bounded by four grid lines, and made up of one or more grid cells. Grid areas are directly addressable
+              by CSS grid properties, which allow you to define the areas and then associate grid items with them."</p>
+          </div>
         
-        <div><p>"{{ basicTerminology }}"</p></div>
-      </div>
-      <div>
-        <span>Select one:</span>
-        <button (click)="setGridTrack()">Grid Track</button>
-        <button (click)="setGridLine()">Grid Line</button>
-        <button (click)="setGridArea()">Grid Area</button>
-        <button (click)="setGridCell()">Grid Cell</button>
-      </div>
-    </app-figure>
-  </app-box>
+          <div class="buttons">
+            <span>Select one:</span>
+            
+            <div class="wrapper">
+              <button (click)="setGridTrack()">Grid Track</button>
+              <button (click)="setGridLine()">Grid Line</button>
+              <button (click)="setGridArea()">Grid Area</button>
+              <button (click)="setGridCell()">Grid Cell</button>
+            </div>
+          </div>
+        </div>
+      </app-figure>
+    </app-box>
+  </div>
+
+  <div class="box-wrapper" #placingGridLines>
+    <app-box title="4. Placing Grid Lines">
+      <app-definition [data]="DEFINITIONS.DEF_GRID_TEMPLATE"></app-definition>
+
+      <p>You can define the grid lines in your overall <em>grid template</em>, or what the CSS specification calls the <em>explicit grid</em>. Grid lines can be referred to by number, and can also 
+      be named by the author.</p>
+
+      <h2 #fixedWidthGridTracks>* Fixed-Width Grid Tracks *</h2>
+
+      <p>Grid tracks are a fixed width. In this context, "fixed-width" means the grid lines are placed such that the distance between them does not change of content within the grid tracks.</p>
+
+      <app-figure title="Figure 3">
+        <pre><code>
+          display: grid;
+          grid-template-columns: [start-col-a] 200px [col-b] 50% [col-c] 100px [stop end last];
+          grid-template-rows: [start masterhead] 3em [content] minmax(3em, 100%) [footer] 2em [stop end];          
+        </code></pre>
+
+        <div class="figure-3">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+        </div>
+      </app-figure>
+
+      <hr>
+
+      <h2 #flexibleGridTracks>* Flexible Grid Tracks *</h2>
+
+      <p>dsadsad das dsa dsa dsa dasd sa sadsadsadsa</p>
+
+      <hr>
+
+      <h2 #fittingTrackContents>* Fitting Track Contents *</h2>
+
+      <p>dsadsad das dsa dsa dsa dasd sa sadsadsadsa</p>
+
+      <hr>
+
+      <h2 #repeatingGridLines>* Repeating Grid Lines *</h2>
+
+      <p>dsadsad das dsa dsa dsa dasd sa sadsadsadsa</p>
+
+      <hr>
+
+      <h2 #gridAreas>* Grid Areas *</h2>
+
+      <p>dsadsad das dsa dsa dsa dasd sa sadsadsadsa</p>
+    </app-box>
+  </div>
 </section>
 

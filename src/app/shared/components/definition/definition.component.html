@@ -1,0 +1,13 @@
+<div class="definition">
+  <div class="title-wrapper">
+    <i class="icon article-icon"></i>
+    <h2>{{ data.title }}</h2>
+  </div>
+  
+  <div class="content">
+    <div class="property" *ngFor="let prop of data.data">
+      <span>{{ prop.key }}</span>
+      <p>{{ prop.value }}</p>
+    </div>
+  </div>
+</div>

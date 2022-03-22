@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DEFINITIONS } from 'src/app/shared/const/definitions.const';
 import { REMARKS_TEXT } from 'src/app/shared/const/remarks.const';
 
 @Component({
@@ -8,8 +9,10 @@ import { REMARKS_TEXT } from 'src/app/shared/const/remarks.const';
 })
 export class HomeComponent {
   public readonly REMARKS_TEXT = REMARKS_TEXT;
+  public readonly DEFINITIONS = DEFINITIONS;
 
-  public basicTerminology = '';
+  public gridComponentType = '';
+
   public isGridCell = false;
   public isGridArea = false;
   public isGridTrack = false;
@@ -19,35 +22,27 @@ export class HomeComponent {
     return Array(n);
   }
 
+  public scrollTo(el: HTMLElement): void {
+    el.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
+  }
+
   public setGridTrack(): void {
-    this.basicTerminology = '';
-    this.isGridCell = false;
-    this.isGridArea = false;
-    this.isGridTrack = true;
-    this.isGridLine = false;
+    this.gridComponentType = 'track';
   }
 
   public setGridLine(): void {
-    this.basicTerminology = '';
-    this.isGridCell = false;
-    this.isGridArea = false;
-    this.isGridTrack = false;
-    this.isGridLine = true;
+    this.gridComponentType = 'line';
   }
 
   public setGridArea(): void {
-    this.basicTerminology = '';
-    this.isGridCell = false;
-    this.isGridArea = true;
-    this.isGridTrack = false;
-    this.isGridLine = false;
+    this.gridComponentType = 'area';
   }
 
   public setGridCell(): void {
-    this.basicTerminology = '';
-    this.isGridCell = true;
-    this.isGridArea = false;
-    this.isGridTrack = false;
-    this.isGridLine = false;
+    this.gridComponentType = 'cell';
   }
 }

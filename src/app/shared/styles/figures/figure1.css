@@ -22,6 +22,7 @@
 .figure-1a .item,
 .figure-1b .item {
   border: 1px solid var(--color-green);  
+  transition: all .5s ease-in-out;
 }
 
 /** Animations **/

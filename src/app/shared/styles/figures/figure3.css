@@ -1,0 +1,15 @@
+.figure-3 {
+  display: grid;
+  grid-template-columns: [start-col-a] 200px [col-b] 50% [col-c] 100px [stop end last];
+  grid-template-rows: [start masterhead] 3em [content] minmax(3em, 100%) [footer] 2em [stop end];
+  
+  border: 2px solid var(--color-100);
+  border-style: dotted;
+
+  text-align: center;
+}
+
+.figure-3 span {
+  border: 1px solid var(--color-green);
+  padding-top: 0.5rem;
+}

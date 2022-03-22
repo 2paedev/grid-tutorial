@@ -1,26 +1,30 @@
 /** ICONS **/
-.thumb-up-icon {
+.icon {
+  display: block;
   width: 3rem;
   height: 3rem;
+  background-size: contain !important;
+}
+
+.thumb-up-icon {
   background: url("/assets/icons/thumb_up.svg") no-repeat top left;
-  background-size: contain;
   filter: var(--filter-color-500)
 }
 
 .expand-less-icon {
-  width: 3rem;
-  height: 3rem;
   background: url("/assets/icons/expand_less.svg") no-repeat top left;
-  background-size: contain;
   filter: var(--filter-color-500);
   cursor: pointer;
 }
 
 .expand-more-icon {
-  width: 3rem;
-  height: 3rem;
   background: url("/assets/icons/expand_more.svg") no-repeat top left;
-  background-size: contain;
+  filter: var(--filter-color-500);
+  cursor: pointer;
+}
+
+.article-icon {
+  background: url("/assets/icons/article.svg") no-repeat top left;
   filter: var(--filter-color-500);
   cursor: pointer;
 }

@@ -1,4 +1,49 @@
 .figure-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.figure-2 .block {
+  display: flex;
+  align-items: center;
+}
+
+.figure-2 .buttons {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 2rem;
+}
+
+
+.figure-2 .buttons .wrapper{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-top: 0.75rem;
+}
+
+.figure-2 .buttons button {
+  background-color: var(--color-100);
+  border-radius: 0.5rem;
+
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.figure-2 .buttons button:first-child {
+  margin-left: 0;
+}
+
+.figure-2 .text {
+  margin-left: 4rem;
+}
+
+.figure-2 .grid {
   display: grid;
   grid-template-columns: repeat(3, 5rem);
   grid-template-rows: repeat(3, 5rem);
@@ -19,20 +64,13 @@
   transform: scale(1.2);
 }
 
-.figure-2 .item.line:hover {
-  border-top: 14px solid var(--color-green); 
-}
-
-.figure-2 .item.track:hover {
-  border-left: 14px solid var(--color-green);
-}
-
 .figure-2 .item.track {
   border-left: 10px solid var(--color-green);
-  transition: all .2s ease-in-out;
+  border-right: 10px solid var(--color-green);
+  transition: all .3s ease-in-out;
 }
 
 .figure-2 .item.line {
   border-top: 10px solid var(--color-green);  
-  transition: all .2s ease-in-out;
+  transition: all .3s ease-in-out;
 }
